@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/pepe.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Pixel Adventure 1/Free/Menu/Buttons/Close.png" type="Texture" id=2]
+[ext_resource path="res://assets/Pixel Adventure 1/Free/Menu/Buttons/Next.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 100.75, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 77, 17.5 )
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 168, 94 )
+
+[node name="pepe" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8, -1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( -19, 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 51, 119 )
+shape = SubResource( 1 )
+
+[node name="Close" type="Sprite" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2( 2, -1 )
+scale = Vector2( 16.5333, 1.25 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( 337, 114 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 1, 1 )
+shape = SubResource( 2 )
+
+[node name="Next" type="Sprite" parent="."]
+position = Vector2( 336.5, 115.5 )
+scale = Vector2( 7.7619, 1.5 )
+texture = ExtResource( 3 )
