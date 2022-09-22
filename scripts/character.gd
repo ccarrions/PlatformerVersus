@@ -5,38 +5,41 @@ extends KinematicBody2D
 var velocity = Vector2()
 
 # No finales
-var GRAVITY = 9
+var GRAVITY = 10
 var SPEED = 200
 var JUMP_SPEED = -300
-var ACCELERATION = 500
-var WALL_JUMP = 150
-var JUMP_WALL = 30
+var ACCELERATION = 900
+var WALL_JUMP = 250
+var JUMP_WALL = 300
+var WALL_SLIDE = 20
 
+export var controls: Resource = null
 
 func _physics_process(delta):
-	print(velocity.y)
-	var move_input = Input.get_axis("move_left", "move_right")
+	var move_input = Input.get_axis(controls.move_left, controls.move_right)
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = move_toward(velocity.x, move_input*SPEED, ACCELERATION*delta)
-	velocity.y += GRAVITY
-	print(velocity.y)
+	velocity.y += GRAVITY	
 	# Wall jump
-	if (is_on_floor() or nextToWall()) and Input.is_action_just_pressed("jump"):
-		velocity.y = JUMP_SPEED
-		if not is_on_floor() and nextToRightWall():
+	if Input.is_action_just_pressed(controls.jump):
+		if is_on_floor():
+			velocity.y = JUMP_SPEED
+		if (not is_on_floor()) && nextToLeftWall():
+			velocity.x += WALL_JUMP
+			velocity.y -= JUMP_WALL
+		if (not is_on_floor()) && nextToRightWall():
 			velocity.x -= WALL_JUMP
 			velocity.y -= JUMP_WALL
-		if not is_on_floor() and nextToLeftWall():
-			velocity.x += WALL_JUMP
-			velocity.y -= JUMP_WALL	
+	if Input.is_action_just_released(controls.jump) && velocity.y < 0:
+		velocity.y = 0	
 			
 	# Wall slide
-	if nextToWall() and velocity.y > 30:
+	if nextToWall() and velocity.y > 20:
 		
-		if nextToRightWall() and Input.is_action_pressed("move_right"):
-			velocity.y = 30
-		if nextToLeftWall() and Input.is_action_pressed("move_left"):
-			velocity.y = 30	
+		if nextToRightWall() and Input.is_action_pressed(controls.move_right):
+			velocity.y = WALL_SLIDE
+		if nextToLeftWall() and Input.is_action_pressed(controls.move_left):
+			velocity.y = WALL_SLIDE
 
 
 func nextToWall():
