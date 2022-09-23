@@ -3,7 +3,13 @@ extends KinematicBody2D
 var velocity = Vector2()
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 var GRAVITY = 9
+=======
+onready var death = $Death
+
+var GRAVITY = 15
+>>>>>>> Stashed changes
 =======
 onready var death = $Death
 
@@ -21,8 +27,21 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = move_toward(velocity.x, move_input*SPEED, ACCELERATION*delta)
 	velocity.y += GRAVITY
+<<<<<<< Updated upstream
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = JUMP_SPEED
+=======
+	
+	
+	
+	if is_on_floor() and Input.is_action_just_pressed("jump"):
+		velocity.y = JUMP_SPEED
+		
+	
+	if Input.is_action_just_released("jump") and velocity.y < 0 and not is_on_wall():
+		velocity.y = 0
+	
+>>>>>>> Stashed changes
 	
 	if is_on_wall() and Input.is_action_just_pressed("move_left"):
 		velocity.y = -JUMP_WALL
@@ -31,6 +50,7 @@ func _physics_process(delta):
 		velocity.y = -JUMP_WALL
 		velocity.x = WALL_JUMP
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	
 =======
 		
@@ -38,6 +58,11 @@ func _physics_process(delta):
 		velocity.y = 0	
 >>>>>>> Stashed changes
 		
+=======
+		
+		
+	
+>>>>>>> Stashed changes
 		
 			
 	# Wall slide
@@ -45,11 +70,14 @@ func _physics_process(delta):
 		velocity.y = 30	
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 =======
 	
 	if position.y > 210:
 		Respawn()
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 	
@@ -60,6 +88,9 @@ func Respawn():
 	velocity.x = 0
 	velocity.y = 0
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
