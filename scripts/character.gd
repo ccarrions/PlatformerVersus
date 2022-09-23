@@ -31,7 +31,20 @@ func _physics_process(delta):
 	# Wall slide
 	if is_on_wall() and velocity.y > 30:
 		velocity.y = 30	
+<<<<<<< Updated upstream
 
+=======
+	
+	if position.y > 210:
+		Respawn()
+	
+
+func Respawn():
+	position.x = -50
+	position.y = 20
+	velocity.x = 0
+	velocity.y = 0
+>>>>>>> Stashed changes
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():

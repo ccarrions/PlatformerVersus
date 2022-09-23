@@ -10,7 +10,16 @@ var WALL_JUMP = 100
 var JUMP_WALL = 200
 
 
+<<<<<<< Updated upstream
 func _physics_process(delta):
+=======
+
+
+func _physics_process(delta):
+	
+		
+	
+>>>>>>> Stashed changes
 	var move_input = Input.get_axis("move_left1", "move_right1")
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = move_toward(velocity.x, move_input*SPEED, ACCELERATION*delta)
@@ -36,6 +45,19 @@ func _physics_process(delta):
 	# Wall slide
 	if is_on_wall() and velocity.y > 30:
 		velocity.y = 30	
+<<<<<<< Updated upstream
+=======
+	
+	if position.y > 500:
+		Respawn()
+	
+
+func Respawn():
+	position.x = -50
+	position.y = 320
+	velocity.x = 0
+	velocity.y = 0
+>>>>>>> Stashed changes
 
 	
 # Called when the node enters the scene tree for the first time.
