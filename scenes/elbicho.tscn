@@ -3,7 +3,11 @@
 [ext_resource path="res://assets/Pixel Adventure 1/Free/Main Characters/Mask Dude/Fall (32x32).png" type="Texture" id=1]
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource path="res://scenes/character2.gd" type="Script" id=2]
+=======
+[ext_resource path="res://scripts/character2.gd" type="Script" id=2]
+>>>>>>> Stashed changes
 =======
 [ext_resource path="res://scripts/character2.gd" type="Script" id=2]
 >>>>>>> Stashed changes
