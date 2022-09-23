@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/pepe.tscn" type="PackedScene" id=1]
@@ -9,12 +10,21 @@
 
 [ext_resource path="res://scenes/pepe.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/lilspook/TileMap.tscn" type="PackedScene" id=2]
+=======
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scenes/pepe.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/lilspook/TileMap.tscn" type="PackedScene" id=2]
+>>>>>>> Stashed changes
 [ext_resource path="res://scenes/button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/elbicho.tscn" type="PackedScene" id=4]
 [ext_resource path="res://spike.png" type="Texture" id=5]
 [ext_resource path="res://scenes/spike.tscn" type="PackedScene" id=6]
 [ext_resource path="res://cannon.png" type="Texture" id=7]
 [ext_resource path="res://scenes/bullet.tscn" type="PackedScene" id=8]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [node name="Node2D" type="Node2D"]
@@ -27,8 +37,11 @@ tile_data = PoolIntArray( -720917, 4, 0, -720916, 4, 0, -720915, 4, 0, -720914, 
 
 [node name="pepe" parent="." instance=ExtResource( 1 )]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 position = Vector2( -86, 6 )
 =======
+=======
+>>>>>>> Stashed changes
 position = Vector2( -71, 39 )
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 4 )]
@@ -42,6 +55,7 @@ tile_data = PoolIntArray( -786320, 8, 0, -720784, 8, 0, -655248, 8, 0, -655229, 
 [node name="Spike" type="Sprite" parent="."]
 position = Vector2( 305, 248 )
 texture = ExtResource( 5 )
+<<<<<<< Updated upstream
 
 [node name="Spike2" type="Sprite" parent="."]
 position = Vector2( 309, -48 )
@@ -94,6 +108,48 @@ Projectile = ExtResource( 8 )
 SpawnX = 522
 SpawnY = 100
 
+=======
+
+[node name="Spike2" type="Sprite" parent="."]
+position = Vector2( 309, -48 )
+texture = ExtResource( 5 )
+
+[node name="Cannon" type="Sprite" parent="."]
+position = Vector2( 427, 63 )
+rotation = 4.71239
+texture = ExtResource( 7 )
+offset = Vector2( 55.849, -82.1351 )
+
+[node name="Cannon2" type="Sprite" parent="."]
+position = Vector2( 353, 303 )
+rotation = 4.71239
+texture = ExtResource( 7 )
+
+[node name="TopButton1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 220, 112 )
+Projectile = ExtResource( 6 )
+SpawnX = 370
+SpawnY = 300
+
+[node name="BotButton1" parent="." instance=ExtResource( 3 )]
+position = Vector2( 224, 408 )
+Projectile = ExtResource( 6 )
+SpawnX = 370
+SpawnY = 5
+
+[node name="TopButton2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 480, -32 )
+Projectile = ExtResource( 8 )
+SpawnX = 522
+SpawnY = 396
+
+[node name="BotButton2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 481, 264 )
+Projectile = ExtResource( 8 )
+SpawnX = 522
+SpawnY = 100
+
+>>>>>>> Stashed changes
 [node name="RightWall" parent="." instance=ExtResource( 2 )]
 cell_size = Vector2( 8, 8 )
 show_collision = true
@@ -103,4 +159,7 @@ tile_data = PoolIntArray( -524214, 1, 0, -458678, 1, 0, -393142, 1, 0, -327606, 
 cell_size = Vector2( 8, 8 )
 show_collision = true
 tile_data = PoolIntArray( -393184, 1, 0, -327648, 1, 0, -262112, 1, 0, -196576, 1, 0, -131040, 1, 0, -65504, 1, 0, 32, 1, 0, 65568, 1, 0, 131104, 1, 0, 196640, 1, 0, 262176, 1, 0, 327712, 1, 0, 327742, 1, 0, 393248, 1, 0, 393278, 1, 0, 458814, 1, 0, 524350, 1, 0, 589886, 1, 0, 655422, 1, 0, 720958, 1, 0, 786494, 1, 0, 852030, 1, 0, 917566, 1, 0, 983102, 1, 0, 1048638, 1, 0, 1114174, 1, 0, 1966111, 1, 0, 2031647, 1, 0, 2097183, 1, 0, 2162719, 1, 0, 2228255, 1, 0, 2293791, 1, 0, 2359327, 1, 0, 2424863, 1, 0, 2490399, 1, 0, 2555935, 1, 0, 2621471, 1, 0, 2687007, 1, 0, 2752543, 1, 0, 2752574, 1, 0, 2818079, 1, 0, 2818110, 1, 0, 2883646, 1, 0, 2949182, 1, 0, 3014718, 1, 0, 3080254, 1, 0, 3145790, 1, 0, 3211326, 1, 0, 3276862, 1, 0, 3342398, 1, 0, 3407934, 1, 0, 3473470, 1, 0, 3539006, 1, 0 )
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

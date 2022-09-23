@@ -1,5 +1,9 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [gd_resource type="TileSet" load_steps=3 format=2]
+=======
+[gd_resource type="TileSet" load_steps=5 format=2]
+>>>>>>> Stashed changes
 =======
 [gd_resource type="TileSet" load_steps=5 format=2]
 >>>>>>> Stashed changes
@@ -9,6 +13,7 @@
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 [resource]
 0/name = "lilspook_tiles.png 0"
@@ -26,6 +31,8 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 0/shapes = [  ]
 0/z_index = 0
 =======
+=======
+>>>>>>> Stashed changes
 [sub_resource type="ConvexPolygonShape2D" id=5]
 points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 
@@ -33,6 +40,9 @@ points = PoolVector2Array( 0, 0, 8, 0, 8, 8, 0, 8 )
 points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 
 [resource]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 1/name = "lilspook_tiles.png 1"
 1/texture = ExtResource( 1 )
@@ -45,6 +55,7 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 1/shape = SubResource( 1 )
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
@@ -71,6 +82,8 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 2/shapes = [  ]
 2/z_index = 0
 =======
+=======
+>>>>>>> Stashed changes
 1/shape_one_way = true
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
@@ -87,6 +100,9 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 3/name = "lilspook_tiles.png 3"
 3/texture = ExtResource( 1 )
@@ -99,10 +115,13 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 3/shape_offset = Vector2( 0, 0 )
 3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 3/shape_one_way = false
 3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 =======
+=======
+>>>>>>> Stashed changes
 3/shape = SubResource( 6 )
 3/shape_one_way = false
 3/shape_one_way_margin = 1.0
@@ -113,6 +132,9 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 "shape": SubResource( 6 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 3/z_index = 0
 4/name = "lilspook_tiles.png 4"
@@ -120,7 +142,11 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 4/region = Rect2( 0, 8, 8, 8 )
+=======
+4/region = Rect2( 24, 8, 8, 8 )
+>>>>>>> Stashed changes
 =======
 4/region = Rect2( 24, 8, 8, 8 )
 >>>>>>> Stashed changes
@@ -133,6 +159,7 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 4/shape_one_way_margin = 0.0
 4/shapes = [  ]
 4/z_index = 0
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 5/name = "lilspook_tiles.png 5"
 5/texture = ExtResource( 1 )
@@ -237,6 +264,8 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 10/shapes = [  ]
 10/z_index = 0
 =======
+=======
+>>>>>>> Stashed changes
 11/name = "lilspook_tiles.png 11"
 11/texture = ExtResource( 1 )
 11/tex_offset = Vector2( 0, 0 )
@@ -279,4 +308,7 @@ points = PoolVector2Array( 8, 8, 0, 8, 0, 0, 8, 0 )
 13/shape_one_way_margin = 0.0
 13/shapes = [  ]
 13/z_index = 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
