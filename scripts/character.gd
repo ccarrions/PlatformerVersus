@@ -2,7 +2,13 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 
+<<<<<<< Updated upstream
 var GRAVITY = 9
+=======
+onready var death = $Death
+
+var GRAVITY = 15
+>>>>>>> Stashed changes
 var SPEED = 250
 var JUMP_SPEED = -300
 var ACCELERATION = 1000
@@ -24,7 +30,13 @@ func _physics_process(delta):
 	if is_on_wall() and Input.is_action_just_pressed("move_right"):
 		velocity.y = -JUMP_WALL
 		velocity.x = WALL_JUMP
+<<<<<<< Updated upstream
 	
+=======
+		
+	if Input.is_action_just_released("jump") and velocity.y < 0 and not is_on_wall():
+		velocity.y = 0	
+>>>>>>> Stashed changes
 		
 		
 			
@@ -32,11 +44,14 @@ func _physics_process(delta):
 	if is_on_wall() and velocity.y > 30:
 		velocity.y = 30	
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 =======
 	
 	if position.y > 210:
 		Respawn()
+=======
+>>>>>>> Stashed changes
 	
 
 func Respawn():
@@ -44,6 +59,9 @@ func Respawn():
 	position.y = 20
 	velocity.x = 0
 	velocity.y = 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 	
 # Called when the node enters the scene tree for the first time.
