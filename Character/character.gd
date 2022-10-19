@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 var velocity = Vector2()
+var LIVES = 1
 
 var GRAVITY = 9
 var SPEED = 250
@@ -9,6 +10,8 @@ var JUMP_SPEED = -300
 var ACCELERATION = 1000
 var WALL_JUMP = 100
 var JUMP_WALL = 200
+var timer = 5
+var DEAD = false
 
 export var controls: Resource = null
 
@@ -34,10 +37,34 @@ func _physics_process(delta):
 	if is_on_wall() and velocity.y > 30:
 		velocity.y = 30	
 
+
+
+func take_damage():
+	LIVES -= 1
+	if LIVES <= 0:
+		die()
+
+func die():
+	self.global_position.x = -1000
+	self.global_position.y = -1000
+	DEAD = true 
 	
+	
+	
+	
+func _process(delta):
+	if DEAD:
+		print(timer)
+		timer -= delta
+		if timer < 0:
+			self.global_position.x = 800
+			self.global_position.y = 500
+			timer = 5
+			DEAD = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

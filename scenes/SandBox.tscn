@@ -21,6 +21,9 @@ render_target_update_mode = 3
 
 [node name="Level2" parent="GridContainer/ViewportContainer/Viewport" instance=ExtResource( 1 )]
 
+[node name="SpikeButton" parent="GridContainer/ViewportContainer/Viewport/Level2" index="3"]
+SpawnY = 400
+
 [node name="Camera2D" type="Camera2D" parent="GridContainer/ViewportContainer/Viewport"]
 current = true
 
