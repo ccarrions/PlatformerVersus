@@ -9,6 +9,12 @@ var ACCELERATION = 1000
 var WALL_JUMP = 100
 var JUMP_WALL = 200
 
+onready var anim_tree = $AnimationTree
+onready var playback = anim_tree.get("parameters/playback")
+onready var pivot = $Pivot
+
+func _ready():
+	anim_tree.active = true
 
 func _physics_process(delta):
 	var move_input = Input.get_axis("move_left1", "move_right1")
@@ -24,24 +30,38 @@ func _physics_process(delta):
 	if is_on_wall() and Input.is_action_just_pressed("move_right1"):
 		velocity.y = -JUMP_WALL
 		velocity.x = WALL_JUMP
-	
 		
-		
-	
 	# Wall jump
 	if (is_on_floor() or is_on_wall()) and Input.is_action_just_pressed("jump1") and (Input.is_action_just_pressed("move_left1") or Input.is_action_just_pressed("move_right1")):
 		print("b")
 		
-			
 	# Wall slide
 	if is_on_wall() and velocity.y > 30:
 		velocity.y = 30	
 
+	#Animations
+	if Input.is_action_just_pressed("p1_move_right") and not Input.is_action_just_pressed("p1_move_left"):
+		pivot.scale.x = 1
+	if Input.is_action_just_pressed("p1_move_left") and not Input.is_action_just_pressed("p1_move_right"):
+		pivot.scale.x = -1
+	if is_on_floor():
+		if abs(velocity.x) > 10:
+			playback.travel("run")
+		else:
+			playback.travel("idle")
+	else:
+		if velocity.y < 0:
+			if is_on_wall():
+				playback.travel("wall_jump")
+			else:
+				 playback.travel("jump")
+		else:
+			if is_on_wall():
+				playback.travel("wall_jump")
+			else:
+				playback.travel("fall")
 	
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
