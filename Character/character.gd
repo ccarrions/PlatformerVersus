@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2()
-var LIVES = 1
+var LIVES = 3
 var GRAVITY = 9
 var SPEED = 250
 var JUMP_SPEED = -300
@@ -12,6 +12,8 @@ var timer = 5
 var DEAD = false
 
 export var controls: Resource = null
+export(NodePath) var selecLives
+onready var Lives = get_node(selecLives)
 
 func _physics_process(delta):
 	if not DEAD:
@@ -44,6 +46,7 @@ func _physics_process(delta):
 
 func take_damage():
 	LIVES -= 1
+	Lives.decrease()
 	if LIVES <= 0:
 		die()
 
@@ -65,6 +68,7 @@ func _process(delta):
 			self.global_position.y = 800
 			LIVES = 1
 			timer = 5
+			Lives.reset()
 			DEAD = false
 			$CollisionShape2D.set_deferred("disabled", false)
 			self.show()

@@ -31,6 +31,7 @@ controls = ExtResource( 3 )
 [node name="Player2" parent="GridContainer/ViewportContainer/Viewport/Level" index="2"]
 script = ExtResource( 5 )
 controls = ExtResource( 4 )
+selecLives = NodePath("")
 
 [node name="Camera2D" type="Camera2D" parent="GridContainer/ViewportContainer/Viewport"]
 current = true

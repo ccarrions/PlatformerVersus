@@ -1,0 +1,146 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Health/Heart.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Sprites/12-Live and Coins/Live Bar.png" type="Texture" id=2]
+[ext_resource path="res://Health/Lives.gd" type="Script" id=3]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=4]
+
+[sub_resource type="Animation" id=5]
+resource_name = "Idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 1, 2, 3, 4, 5, 6, 7 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+
+[node name="Lives" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 65, 34 )
+scale = Vector2( 1.91176, 1.91176 )
+texture = ExtResource( 2 )
+
+[node name="Heart1" parent="." instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="Heart1" index="0"]
+position = Vector2( 40, 33 )
+scale = Vector2( 2.01786, 2.01786 )
+
+[node name="AnimationTree" parent="Heart1" index="2"]
+parameters/playback = SubResource( 1 )
+
+[node name="Heart2" parent="." instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="Heart2" index="0"]
+position = Vector2( 60, 33 )
+scale = Vector2( 2.0625, 2.0625 )
+
+[node name="AnimationPlayer" parent="Heart2" index="1"]
+anims/Idle = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="AnimationTree" parent="Heart2" index="2"]
+parameters/playback = SubResource( 4 )
+
+[node name="Heart3" parent="." instance=ExtResource( 1 )]
+
+[node name="Sprite" parent="Heart3" index="0"]
+position = Vector2( 82, 33 )
+scale = Vector2( 2.15179, 2.15179 )
+
+[node name="AnimationPlayer" parent="Heart3" index="1"]
+anims/Idle = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="AnimationTree" parent="Heart3" index="2"]
+parameters/playback = SubResource( 7 )
+
+[editable path="Heart1"]
+[editable path="Heart2"]
+[editable path="Heart3"]
