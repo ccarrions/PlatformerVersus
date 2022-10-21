@@ -1,9 +1,7 @@
 extends KinematicBody2D
 
-
 var velocity = Vector2()
-var LIVES = 1
-
+var LIVES = 3
 var GRAVITY = 9
 var SPEED = 250
 var JUMP_SPEED = -300
@@ -17,13 +15,18 @@ onready var anim_tree = $AnimationTree
 onready var playback = anim_tree.get("parameters/playback")
 onready var pivot = $Pivot
 
+export var controls: Resource = null
+export(NodePath) var selecLives
+onready var Lives = get_node(selecLives)
+
+
 func _ready():
 	anim_tree.active = true
 
-export var controls: Resource = null
 
 
 func _physics_process(delta):
+
 	var move_input = Input.get_axis(controls.move_left, controls.move_right)
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = move_toward(velocity.x, move_input*SPEED, ACCELERATION*delta)
@@ -37,7 +40,7 @@ func _physics_process(delta):
 	if is_on_wall() and Input.is_action_just_pressed(controls.move_right):
 		velocity.y = -JUMP_WALL
 		velocity.x = WALL_JUMP
-		
+			
 	# Wall slide
 	if is_on_wall() and velocity.y > 30:
 		velocity.y = 30	
@@ -64,33 +67,47 @@ func _physics_process(delta):
 			else:
 				playback.travel("fall")
 
+	if not DEAD:
+		var move_input = Input.get_axis(controls.move_left, controls.move_right)
+		velocity = move_and_slide(velocity, Vector2.UP)
+		velocity.x = move_toward(velocity.x, move_input*SPEED, ACCELERATION*delta)
+		velocity.y += GRAVITY
+		if is_on_floor() and Input.is_action_just_pressed(controls.jump):
+			velocity.y = JUMP_SPEED
+		
+		if is_on_wall() and Input.is_action_just_pressed(controls.move_left):
+			velocity.y = -JUMP_WALL
+			velocity.x = -WALL_JUMP
+		if is_on_wall() and Input.is_action_just_pressed(controls.move_right):
+			velocity.y = -JUMP_WALL
+			velocity.x = WALL_JUMP
 
 
 func take_damage():
 	LIVES -= 1
+	Lives.decrease()
 	if LIVES <= 0:
 		die()
 
 func die():
-	self.global_position.x = -1000
-	self.global_position.y = -1000
-	DEAD = true 
+	DEAD = true
+	self.global_position.x = 800
+	self.global_position.y = 500
+	$CollisionShape2D.set_deferred("disabled", true)
+	self.hide()
 	
 	
 	
 	
 func _process(delta):
 	if DEAD:
-		print(timer)
 		timer -= delta
 		if timer < 0:
-			self.global_position.x = 800
-			self.global_position.y = 500
+			self.global_position.x = 500
+			self.global_position.y = 800
+			LIVES = 1
 			timer = 5
+			Lives.reset()
 			DEAD = false
-# Called when the node enters the scene tree for the first time.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+			$CollisionShape2D.set_deferred("disabled", false)
+			self.show()
