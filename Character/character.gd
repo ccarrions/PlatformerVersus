@@ -26,35 +26,6 @@ func _ready():
 
 
 func _physics_process(delta):
-
-	
-			
-	# Wall slide
-	if is_on_wall() and velocity.y > 30:
-		velocity.y = 30	
-		
-	#Animations
-	if Input.is_action_just_pressed(controls.move_right) and not Input.is_action_just_pressed(controls.move_left):
-		pivot.scale.x = 1
-	if Input.is_action_just_pressed(controls.move_left) and not Input.is_action_just_pressed(controls.move_right):
-		pivot.scale.x = -1
-	if is_on_floor():
-		if abs(velocity.x) > 10:
-			playback.travel("run")
-		else:
-			playback.travel("idle")
-	else:
-		if velocity.y < 0:
-			if is_on_wall():
-				playback.travel("wall_jump")
-			else:
-				 playback.travel("jump")
-		else:
-			if is_on_wall():
-				playback.travel("wall_jump")
-			else:
-				playback.travel("fall")
-
 	if not DEAD:
 		var move_input = Input.get_axis(controls.move_left, controls.move_right)
 		velocity = move_and_slide(velocity, Vector2.UP)
@@ -69,6 +40,33 @@ func _physics_process(delta):
 		if is_on_wall() and Input.is_action_just_pressed(controls.move_right):
 			velocity.y = -JUMP_WALL
 			velocity.x = WALL_JUMP
+				
+		# Wall slide
+		if is_on_wall() and velocity.y > 30:
+			velocity.y = 30	
+			
+		#Animations
+		if Input.is_action_just_pressed("p1_move_right") and not Input.is_action_just_pressed("p1_move_left"):
+			pivot.scale.x = 1
+		if Input.is_action_just_pressed("p1_move_left") and not Input.is_action_just_pressed("p1_move_right"):
+			pivot.scale.x = -1
+		if is_on_floor():
+			if abs(velocity.x) > 10:
+				playback.travel("run")
+			else:
+				playback.travel("idle")
+		else:
+			if velocity.y < 0:
+				if is_on_wall():
+					playback.travel("wall_jump")
+				else:
+					 playback.travel("jump")
+			else:
+				if is_on_wall():
+					playback.travel("wall_jump")
+				else:
+					playback.travel("fall")
+
 
 
 func take_damage():
@@ -90,11 +88,13 @@ func die():
 func _process(delta):
 	if DEAD:
 		timer -= delta
-		if timer < 0:
+		if timer < 0: # Respawn
 			self.global_position.x = 500
 			self.global_position.y = 800
-			LIVES = 1
+			LIVES = 3
 			timer = 5
+			velocity.x = 0
+			velocity.y = 0
 			Lives.reset()
 			DEAD = false
 			$CollisionShape2D.set_deferred("disabled", false)
