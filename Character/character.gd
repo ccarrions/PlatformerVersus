@@ -17,6 +17,8 @@ onready var pivot = $Pivot
 
 export var controls: Resource = null
 export(NodePath) var selecLives
+export var RespawnX = 0
+export var RespawnY = 0
 onready var Lives = get_node(selecLives)
 
 
@@ -46,9 +48,9 @@ func _physics_process(delta):
 			velocity.y = 30	
 			
 		#Animations
-		if Input.is_action_just_pressed("p1_move_right") and not Input.is_action_just_pressed("p1_move_left"):
+		if Input.is_action_just_pressed(controls.move_right) and not Input.is_action_just_pressed(controls.move_left):
 			pivot.scale.x = 1
-		if Input.is_action_just_pressed("p1_move_left") and not Input.is_action_just_pressed("p1_move_right"):
+		if Input.is_action_just_pressed(controls.move_left) and not Input.is_action_just_pressed(controls.move_right):
 			pivot.scale.x = -1
 		if is_on_floor():
 			if abs(velocity.x) > 10:
@@ -89,8 +91,8 @@ func _process(delta):
 	if DEAD:
 		timer -= delta
 		if timer < 0: # Respawn
-			self.global_position.x = 500
-			self.global_position.y = 800
+			self.global_position.x = RespawnX
+			self.global_position.y = RespawnY
 			LIVES = 3
 			timer = 5
 			velocity.x = 0
