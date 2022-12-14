@@ -14,6 +14,7 @@ func _ready():
 	print(root)
 	
 func win(body: Node):
+	$Win.play()
 	if body.get_name() == "Player1":
 		root.visible = true
 		root.get_child(1).visible = true
