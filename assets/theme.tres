@@ -1,0 +1,92 @@
+[gd_resource type="Theme" load_steps=17 format=2]
+
+[ext_resource path="res://assets/ThaleahFat/ThaleahFat.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 180
+outline_size = 20
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxLine" id=3]
+color = Color( 1, 1, 1, 1 )
+grow_begin = -150.0
+grow_end = -150.0
+
+[sub_resource type="StyleBoxEmpty" id=10]
+content_margin_left = 50.0
+content_margin_right = 50.0
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+
+[sub_resource type="DynamicFont" id=4]
+size = 90
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 60
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxLine" id=5]
+color = Color( 1, 1, 1, 1 )
+thickness = 5
+
+[sub_resource type="StyleBoxLine" id=9]
+color = Color( 1, 1, 1, 1 )
+grow_begin = -150.0
+grow_end = -150.0
+thickness = 2
+
+[sub_resource type="DynamicFont" id=6]
+size = 140
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxLine" id=7]
+color = Color( 1, 1, 1, 1 )
+thickness = 3
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+outline_size = 5
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[resource]
+default_font = SubResource( 1 )
+BigLabel/base_type = "Label"
+BigLabel/fonts/font = SubResource( 2 )
+HSeparator/styles/separator = SubResource( 3 )
+ScrollContainer/styles/bg = SubResource( 10 )
+SmallFont/base_type = "Label"
+SmallFont/fonts/font = SubResource( 4 )
+SmallFont2/base_type = "Label"
+SmallFont2/fonts/font = SubResource( 8 )
+SmallSep/base_type = "HSeparator"
+SmallSep/styles/separator = SubResource( 5 )
+SmallSeparator2/base_type = "HSeparator"
+SmallSeparator2/styles/separator = SubResource( 9 )
+Sub/base_type = "Label"
+Sub/fonts/font = SubResource( 6 )
+VScrollBar/styles/grabber = SubResource( 11 )
+VScrollBar/styles/grabber_highlight = SubResource( 12 )
+VScrollBar/styles/grabber_pressed = SubResource( 13 )
+VScrollBar/styles/scroll = SubResource( 14 )
+VScrollBar/styles/scroll_focus = SubResource( 15 )
+VerySmall/base_type = "HSeparator"
+VerySmall/styles/separator = SubResource( 7 )

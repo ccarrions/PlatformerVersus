@@ -36,28 +36,34 @@ margin_right = 73.0
 margin_bottom = 26.5
 
 [node name="Label" type="Label" parent="StartButtons"]
-margin_right = 146.0
-margin_bottom = 14.0
+margin_right = 635.0
+margin_bottom = 74.0
 text = "PlatformerVersus"
 align = 1
 
 [node name="StartButton" type="Button" parent="StartButtons"]
-margin_top = 18.0
-margin_right = 146.0
-margin_bottom = 38.0
+margin_top = 78.0
+margin_right = 635.0
+margin_bottom = 158.0
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="StartButtons"]
-margin_top = 42.0
-margin_right = 146.0
-margin_bottom = 62.0
+margin_top = 162.0
+margin_right = 635.0
+margin_bottom = 242.0
 text = "Options"
 
 [node name="QuitButton" type="Button" parent="StartButtons"]
-margin_top = 66.0
-margin_right = 146.0
-margin_bottom = 86.0
+margin_top = 246.0
+margin_right = 635.0
+margin_bottom = 326.0
 text = "Quit"
+
+[node name="Creditos" type="Button" parent="StartButtons"]
+margin_top = 330.0
+margin_right = 635.0
+margin_bottom = 410.0
+text = "Creditos"
 
 [node name="Menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
@@ -141,6 +147,7 @@ texture = ExtResource( 5 )
 [connection signal="pressed" from="StartButtons/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="StartButtons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="StartButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="StartButtons/Creditos" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="LevelSelect/HBoxContainer/Level 1" to="." method="_on_Level_1_pressed"]
 [connection signal="pressed" from="LevelSelect/HBoxContainer/Level 2" to="." method="_on_Level_2_pressed"]
 [connection signal="pressed" from="LevelSelect/HBoxContainer/Level 3" to="." method="_on_Level_3_pressed"]
