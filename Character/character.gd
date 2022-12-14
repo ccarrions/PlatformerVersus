@@ -10,6 +10,7 @@ var WALL_JUMP = 250
 var JUMP_WALL = 250
 var timer = 5
 var DEAD = false
+var sound_has_played = false
 
 onready var anim_tree = $AnimationTree
 onready var playback = anim_tree.get("parameters/playback")
@@ -84,10 +85,12 @@ func _physics_process(delta):
 
 
 func take_damage():
+	$Hit.play()
 	LIVES -= 1
 	Lives.decrease()
 	if LIVES <= 0:
 		die()
+		$Death.play()
 
 func die():
 	DEAD = true

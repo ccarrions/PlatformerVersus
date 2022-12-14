@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Disparo.ogg-1f383ed90b86f7a1fb6cd2a84c59f9a8.oggstr"
+
+[deps]
+
+source_file="res://sfx/Disparo.ogg"
+dest_files=[ "res://.import/Disparo.ogg-1f383ed90b86f7a1fb6cd2a84c59f9a8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

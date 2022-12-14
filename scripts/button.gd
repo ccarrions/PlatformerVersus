@@ -17,3 +17,5 @@ func on_press(body: KinematicBody2D):
 	
 	projectile.global_position.x = SpawnX
 	projectile.global_position.y = SpawnY
+	
+	$Disparo.play()
