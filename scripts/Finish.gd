@@ -24,7 +24,7 @@ func win(body: Node):
 		root.get_child(1).visible = true
 		get_tree().paused = true
 		
-	elif body.get_name() == "Player2":
+	elif body.get_name() == "Player2" and not Winner:
 		Winner = true
 		$Win.play()
 		yield($Win, "finished")
