@@ -39,19 +39,20 @@ anchor_left = 0.5
 anchor_top = 0.605
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -42.5
-margin_top = -54.685
-margin_right = 43.5
+margin_left = -179.5
+margin_top = -63.685
+margin_right = 152.5
+margin_bottom = -9.0
 
 [node name="MainMenuButton" type="Button" parent="VBoxContainer"]
-margin_right = 86.0
-margin_bottom = 20.0
+margin_right = 332.0
+margin_bottom = 80.0
 text = "Main Menu"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 86.0
-margin_bottom = 44.0
+margin_top = 84.0
+margin_right = 332.0
+margin_bottom = 164.0
 text = "Quit"
 
 [node name="Win" type="AudioStreamPlayer" parent="."]

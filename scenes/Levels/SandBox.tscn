@@ -992,7 +992,7 @@ RespawnX = 500
 RespawnY = 750
 
 [node name="Player2" parent="GridContainer/ViewportContainer/Viewport/Level2" index="2"]
-selecLives = NodePath(".")
+selecLives = NodePath("../../../../ViewportContainer2/HUDP2/LivesP2")
 RespawnX = 500
 RespawnY = 750
 
