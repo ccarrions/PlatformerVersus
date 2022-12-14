@@ -333,3 +333,13 @@ anims/wall_jump = SubResource( 13 )
 tree_root = SubResource( 11 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 12 )
+
+[node name="RightWall" type="RayCast2D" parent="."]
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( -8.74228e-07, 20 )
+
+[node name="LeftWall" type="RayCast2D" parent="."]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 8.74228e-07, 20 )
