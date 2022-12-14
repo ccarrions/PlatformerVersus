@@ -2,6 +2,8 @@ extends Area2D
 
 export var WinScreen = "res://scenes/WinScreen.tscn"
 
+var Winner = false
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -14,7 +16,8 @@ func _ready():
 	
 func win(body: Node):
 
-	if body.get_name() == "Player1":
+	if body.get_name() == "Player1" and not Winner:
+		Winner = true
 		$Win.play()
 		yield($Win, "finished")
 		root.visible = true
@@ -22,6 +25,7 @@ func win(body: Node):
 		get_tree().paused = true
 		
 	elif body.get_name() == "Player2":
+		Winner = true
 		$Win.play()
 		yield($Win, "finished")
 		root.visible = true

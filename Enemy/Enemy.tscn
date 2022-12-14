@@ -30,13 +30,13 @@ shape = SubResource( 1 )
 [node name="CollisionLeft" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionLeft"]
-position = Vector2( -32, 20 )
+position = Vector2( -16, 20 )
 shape = SubResource( 2 )
 
 [node name="CollisionRight" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionRight"]
-position = Vector2( 32, 20 )
+position = Vector2( 16, 20 )
 shape = SubResource( 2 )
 
 [node name="HitArea" type="Area2D" parent="."]
@@ -51,10 +51,20 @@ shape = SubResource( 3 )
 position = Vector2( 0, -8 )
 shape = SubResource( 4 )
 
+[node name="LeftWall" type="RayCast2D" parent="."]
+rotation = 1.5708
+enabled = true
+cast_to = Vector2( 0, 20 )
+
+[node name="RightWall" type="RayCast2D" parent="."]
+rotation = -1.5708
+enabled = true
+cast_to = Vector2( 0, 20 )
+
 [connection signal="body_entered" from="CollisionLeft" to="." method="_on_CollisionLeft_body_entered"]
 [connection signal="body_exited" from="CollisionLeft" to="." method="_on_CollisionLeft_body_exited"]
 [connection signal="body_entered" from="CollisionRight" to="." method="_on_CollisionRight_body_entered"]
 [connection signal="body_exited" from="CollisionRight" to="." method="_on_CollisionRight_body_exited"]
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
-[connection signal="body_entered" from="TakeControl" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="TakeControl" to="." method="_on_TakeControl_body_entered"]
+[connection signal="body_entered" from="TakeControl" to="." method="_on_Area2D_body_entered"]

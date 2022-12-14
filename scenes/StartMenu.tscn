@@ -1,14 +1,31 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://soundtrack/Menu.wav" type="AudioStream" id=2]
+[ext_resource path="res://Level4.png" type="Texture" id=3]
+[ext_resource path="res://Level 3.png" type="Texture" id=4]
+[ext_resource path="res://Level2.png" type="Texture" id=5]
+[ext_resource path="res://Level1.png" type="Texture" id=6]
 
 [node name="Menu" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
 script = ExtResource( 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -151.0
+margin_top = -125.0
+margin_right = 2063.0
+margin_bottom = 1201.0
+color = Color( 0.105882, 0.27451, 0.396078, 1 )
+
+[node name="StartButtons" type="VBoxContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -18,25 +35,25 @@ margin_top = -26.5
 margin_right = 73.0
 margin_bottom = 26.5
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="StartButtons"]
 margin_right = 146.0
 margin_bottom = 14.0
 text = "PlatformerVersus"
 align = 1
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="StartButton" type="Button" parent="StartButtons"]
 margin_top = 18.0
 margin_right = 146.0
 margin_bottom = 38.0
 text = "Start"
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="StartButtons"]
 margin_top = 42.0
 margin_right = 146.0
 margin_bottom = 62.0
 text = "Options"
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="StartButtons"]
 margin_top = 66.0
 margin_right = 146.0
 margin_bottom = 86.0
@@ -46,6 +63,86 @@ text = "Quit"
 stream = ExtResource( 2 )
 volume_db = -26.218
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[node name="LevelSelect" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -121.0
+margin_top = -133.0
+margin_right = 123.0
+margin_bottom = 162.0
+alignment = 1
+
+[node name="Label" type="Label" parent="LevelSelect"]
+margin_top = 108.0
+margin_right = 244.0
+margin_bottom = 139.0
+text = "Level Selection
+"
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelSelect"]
+margin_top = 143.0
+margin_right = 244.0
+margin_bottom = 163.0
+alignment = 1
+
+[node name="Level 1" type="Button" parent="LevelSelect/HBoxContainer"]
+margin_right = 58.0
+margin_bottom = 20.0
+text = "Level 1"
+
+[node name="Level 2" type="Button" parent="LevelSelect/HBoxContainer"]
+margin_left = 62.0
+margin_right = 120.0
+margin_bottom = 20.0
+text = "Level 2"
+
+[node name="Level 3" type="Button" parent="LevelSelect/HBoxContainer"]
+margin_left = 124.0
+margin_right = 182.0
+margin_bottom = 20.0
+text = "Level 3"
+
+[node name="Level 4" type="Button" parent="LevelSelect/HBoxContainer"]
+margin_left = 186.0
+margin_right = 244.0
+margin_bottom = 20.0
+text = "Level 4"
+
+[node name="BackButton" type="Button" parent="LevelSelect"]
+margin_top = 167.0
+margin_right = 244.0
+margin_bottom = 187.0
+text = "Back"
+
+[node name="Level1" type="Sprite" parent="LevelSelect"]
+position = Vector2( -308, 7 )
+scale = Vector2( 0.25, 0.252835 )
+texture = ExtResource( 6 )
+
+[node name="Level4" type="Sprite" parent="LevelSelect"]
+position = Vector2( 515, 7 )
+scale = Vector2( 0.258891, 0.263298 )
+texture = ExtResource( 3 )
+
+[node name="Level3" type="Sprite" parent="LevelSelect"]
+position = Vector2( 249, 7 )
+scale = Vector2( 0.272415, 0.254979 )
+texture = ExtResource( 4 )
+
+[node name="Level2" type="Sprite" parent="LevelSelect"]
+position = Vector2( -23, 7 )
+scale = Vector2( 0.25, 0.277968 )
+texture = ExtResource( 5 )
+
+[connection signal="pressed" from="StartButtons/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="StartButtons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="StartButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="LevelSelect/HBoxContainer/Level 1" to="." method="_on_Level_1_pressed"]
+[connection signal="pressed" from="LevelSelect/HBoxContainer/Level 2" to="." method="_on_Level_2_pressed"]
+[connection signal="pressed" from="LevelSelect/HBoxContainer/Level 3" to="." method="_on_Level_3_pressed"]
+[connection signal="pressed" from="LevelSelect/HBoxContainer/Level 4" to="." method="_on_Level_4_pressed"]
+[connection signal="pressed" from="LevelSelect/BackButton" to="." method="_on_BackButton_pressed"]

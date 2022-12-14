@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/Prototype.gd" type="Script" id=1]
 [ext_resource path="res://Health/Lives.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Levels/Level 3Map.tscn" type="PackedScene" id=4]
 [ext_resource path="res://soundtrack/Nivel.wav" type="AudioStream" id=5]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=6]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=1]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
 [node name="LevelProt" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -38,9 +45,21 @@ selecLives = NodePath("../../../../ViewportContainer2/HUDP2/LivesP2")
 RespawnX = 110
 RespawnY = 400
 
+[node name="Enemy" parent="GridContainer/ViewportContainer/Viewport/Level" instance=ExtResource( 6 )]
+position = Vector2( 499, 268 )
+
 [node name="HUDP1" type="CanvasLayer" parent="GridContainer/ViewportContainer"]
 
 [node name="LivesP1" parent="GridContainer/ViewportContainer/HUDP1" instance=ExtResource( 2 )]
+
+[node name="AnimationTree" parent="GridContainer/ViewportContainer/HUDP1/LivesP1/Heart1" index="2"]
+parameters/playback = SubResource( 1 )
+
+[node name="AnimationTree" parent="GridContainer/ViewportContainer/HUDP1/LivesP1/Heart2" index="2"]
+parameters/playback = SubResource( 2 )
+
+[node name="AnimationTree" parent="GridContainer/ViewportContainer/HUDP1/LivesP1/Heart3" index="2"]
+parameters/playback = SubResource( 3 )
 
 [node name="ViewportContainer2" type="ViewportContainer" parent="GridContainer"]
 margin_top = 542.0
@@ -68,3 +87,7 @@ stream = ExtResource( 5 )
 volume_db = -13.0
 
 [editable path="GridContainer/ViewportContainer/Viewport/Level"]
+[editable path="GridContainer/ViewportContainer/HUDP1/LivesP1"]
+[editable path="GridContainer/ViewportContainer/HUDP1/LivesP1/Heart1"]
+[editable path="GridContainer/ViewportContainer/HUDP1/LivesP1/Heart2"]
+[editable path="GridContainer/ViewportContainer/HUDP1/LivesP1/Heart3"]
