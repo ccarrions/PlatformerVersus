@@ -23,15 +23,6 @@ render_target_update_mode = 3
 
 [node name="Level2" parent="GridContainer/ViewportContainer/Viewport" instance=ExtResource( 1 )]
 
-[node name="Player1" parent="GridContainer/ViewportContainer/Viewport/Level2" index="1"]
-selecLives = NodePath("../../../HUDP1/LivesP1")
-
-[node name="Player2" parent="GridContainer/ViewportContainer/Viewport/Level2" index="2"]
-selecLives = NodePath("../../../../ViewportContainer2/HUDP2/LivesP2")
-
-[node name="SpikeButton" parent="GridContainer/ViewportContainer/Viewport/Level2" index="3"]
-SpawnY = 390
-
 [node name="Camera2D" type="Camera2D" parent="GridContainer/ViewportContainer/Viewport"]
 current = true
 
@@ -60,6 +51,5 @@ position = Vector2( 0, 540 )
 
 [node name="GUI" parent="." instance=ExtResource( 3 )]
 
-[editable path="GridContainer/ViewportContainer/Viewport/Level2"]
 [editable path="GUI"]
 [editable path="GUI/WinScreen"]

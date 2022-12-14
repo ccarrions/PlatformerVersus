@@ -14,13 +14,16 @@ func _ready():
 	
 func win(body: Node):
 
-	$Win.play()
 	if body.get_name() == "Player1":
+		$Win.play()
+		yield($Win, "finished")
 		root.visible = true
 		root.get_child(1).visible = true
 		get_tree().paused = true
 		
 	elif body.get_name() == "Player2":
+		$Win.play()
+		yield($Win, "finished")
 		root.visible = true
 		root.get_child(2).visible = true
 		get_tree().paused = true
