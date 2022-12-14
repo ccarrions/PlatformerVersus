@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player2 Wins.png" type="Texture" id=1]
 [ext_resource path="res://Player1Wins.png" type="Texture" id=2]
 [ext_resource path="res://scripts/WinScreen.gd" type="Script" id=3]
+[ext_resource path="res://sfx/Success 1.wav" type="AudioStream" id=4]
 
 [node name="WinScreen" type="Control"]
 pause_mode = 2
@@ -52,6 +53,10 @@ margin_top = 24.0
 margin_right = 86.0
 margin_bottom = 44.0
 text = "Quit"
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -7.882
 
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

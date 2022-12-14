@@ -2,14 +2,15 @@ extends KinematicBody2D
 
 var velocity = Vector2()
 var LIVES = 3
-var GRAVITY = 9
+var GRAVITY = 12
 var SPEED = 250
 var JUMP_SPEED = -300
 var ACCELERATION = 1000
-var WALL_JUMP = 100
-var JUMP_WALL = 200
+var WALL_JUMP = 250
+var JUMP_WALL = 250
 var timer = 5
 var DEAD = false
+var sound_has_played = false
 
 onready var anim_tree = $AnimationTree
 onready var playback = anim_tree.get("parameters/playback")
@@ -25,7 +26,14 @@ onready var Lives = get_node(selecLives)
 func _ready():
 	anim_tree.active = true
 
+func nextToRightWall():
+	return $RightWall.is_colliding()
 
+func nextToLeftWall():
+	return $LeftWall.is_colliding()
+	
+func nextToWall():
+	return nextToRightWall() or nextToLeftWall()
 
 func _physics_process(delta):
 	if not DEAD:
@@ -33,15 +41,20 @@ func _physics_process(delta):
 		velocity = move_and_slide(velocity, Vector2.UP)
 		velocity.x = move_toward(velocity.x, move_input*SPEED, ACCELERATION*delta)
 		velocity.y += GRAVITY
-		if is_on_floor() and Input.is_action_just_pressed(controls.jump):
-			velocity.y = JUMP_SPEED
 		
-		if is_on_wall() and Input.is_action_just_pressed(controls.move_left):
-			velocity.y = -JUMP_WALL
-			velocity.x = -WALL_JUMP
-		if is_on_wall() and Input.is_action_just_pressed(controls.move_right):
-			velocity.y = -JUMP_WALL
-			velocity.x = WALL_JUMP
+		# Jump y Wall jump
+		if is_on_floor() or nextToWall():
+			 if Input.is_action_just_pressed(controls.jump):
+					velocity.y = JUMP_SPEED
+			
+					if not is_on_floor() and nextToRightWall():
+						velocity.y = -JUMP_WALL
+						velocity.x = -WALL_JUMP
+					
+					if not is_on_floor() and nextToLeftWall():
+						velocity.y = -JUMP_WALL
+						velocity.x = WALL_JUMP	
+			
 				
 		# Wall slide
 		if is_on_wall() and velocity.y > 30:
@@ -72,10 +85,12 @@ func _physics_process(delta):
 
 
 func take_damage():
+	$Hit.play()
 	LIVES -= 1
 	Lives.decrease()
 	if LIVES <= 0:
 		die()
+		$Death.play()
 
 func die():
 	DEAD = true

@@ -10,11 +10,11 @@ onready var root = get_tree().get_current_scene().get_node("GUI").get_node("WinS
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(root)
 	connect("body_entered", self, "win") # Replace with function body.
 	
 func win(body: Node):
-	print(body)
+
+	$Win.play()
 	if body.get_name() == "Player1":
 		root.visible = true
 		root.get_child(1).visible = true
