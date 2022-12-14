@@ -6,8 +6,8 @@ extends Control
 # var a = 2
 # var b = "text"
 func _on_StartButton_pressed():
-	$StartButtons.visible = false
-	$LevelSelect.visible = true
+	$MarginContainer/StartButtons.visible = false
+	$MarginContainer/LevelSelect.visible = true
 	
 
 func _on_QuitButton_pressed():
@@ -15,7 +15,7 @@ func _on_QuitButton_pressed():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$StartButtons/StartButton.grab_focus()  # Replace with function body.
+	$MarginContainer/StartButtons/StartButton.grab_focus()  # Replace with function body.
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,7 +31,7 @@ func _on_OptionsButton_pressed():
 
 
 func _on_BackButton_pressed():
-	$StartButtons.visible = true
+	$MarginContainer/StartButtons.visible = true
 	$LevelSelect.visible = false
 
 
