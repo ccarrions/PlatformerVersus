@@ -144,9 +144,9 @@ position = Vector2( 768.625, 389.875 )
 scale = Vector2( 0.25, 0.277968 )
 texture = ExtResource( 5 )
 
-[node name="Menu" type="AudioStreamPlayer" parent="."]
+[node name="menusong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -26.218
+volume_db = -23.0
 
 [connection signal="pressed" from="MarginContainer/StartButtons/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="MarginContainer/StartButtons/OptionsButton" to="." method="_on_OptionsButton_pressed"]

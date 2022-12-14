@@ -17,6 +17,7 @@ onready var players:= {
 
 
 func _ready() -> void:
+	$music.volume_db = -18
 	$music.play()
 	players["2"].viewport.world_2d = players["1"].viewport.world_2d
 	for node in players.values():

@@ -15,7 +15,8 @@ func _on_QuitButton_pressed():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MarginContainer/StartButtons/StartButton.grab_focus()  # Replace with function body.
+	$MarginContainer/StartButtons/StartButton.grab_focus()
+	$menusong.play()  # Replace with function body.
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
