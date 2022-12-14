@@ -4,13 +4,13 @@ onready var players:= {
 	"1": {
 		viewport = $GridContainer/ViewportContainer/Viewport,
 		camera = $GridContainer/ViewportContainer/Viewport/Camera2D,
-		player = $GridContainer/ViewportContainer/Viewport/Prototype/Player1,
+		player = $GridContainer/ViewportContainer/Viewport/Level/Player1,
 		
 	},
 	"2": {
 		viewport = $GridContainer/ViewportContainer2/Viewport,
 		camera = $GridContainer/ViewportContainer2/Viewport/Camera2D,
-		player = $GridContainer/ViewportContainer/Viewport/Prototype/Player2,
+		player = $GridContainer/ViewportContainer/Viewport/Level/Player2,
 	
 	}
 }

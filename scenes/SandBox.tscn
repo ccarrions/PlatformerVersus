@@ -61,3 +61,5 @@ position = Vector2( 0, 540 )
 [node name="GUI" parent="." instance=ExtResource( 3 )]
 
 [editable path="GridContainer/ViewportContainer/Viewport/Level2"]
+[editable path="GUI"]
+[editable path="GUI/WinScreen"]

@@ -6,14 +6,15 @@ export var WinScreen = "res://scenes/WinScreen.tscn"
 # var a = 2
 # var b = "text"
 
-onready var root = get_parent().get_parent().get_parent().get_parent().get_parent().get_child(1).get_child(1)
+onready var root = get_tree().get_current_scene().get_node("GUI").get_node("WinScreen")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("body_entered", self, "win") # Replace with function body.
 	print(root)
+	connect("body_entered", self, "win") # Replace with function body.
 	
 func win(body: Node):
+	print(body)
 	if body.get_name() == "Player1":
 		root.visible = true
 		root.get_child(1).visible = true
