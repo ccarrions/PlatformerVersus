@@ -32,7 +32,7 @@ func _on_OptionsButton_pressed():
 
 func _on_BackButton_pressed():
 	$MarginContainer/StartButtons.visible = true
-	$LevelSelect.visible = false
+	$MarginContainer/LevelSelect.visible = false
 
 
 func _on_Level_1_pressed():
