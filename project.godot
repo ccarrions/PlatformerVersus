@@ -28,11 +28,19 @@ config/icon="res://icon.png"
 
 window/size/width=1920
 window/size/height=1080
+window/vsync/use_vsync=false
+window/stretch/mode="viewport"
 
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
 theme/custom="res://assets/theme.tres"
+
+[importer_defaults]
+
+texture={
+"flags/filter": false
+}
 
 [input]
 
