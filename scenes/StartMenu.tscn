@@ -33,9 +33,9 @@ margin_bottom = -50.0
 
 [node name="StartButtons" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 592.0
-margin_top = 285.0
+margin_top = 327.0
 margin_right = 1227.0
-margin_bottom = 695.0
+margin_bottom = 653.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
@@ -53,21 +53,22 @@ margin_bottom = 158.0
 text = "Start"
 
 [node name="OptionsButton" type="Button" parent="MarginContainer/StartButtons"]
+visible = false
 margin_top = 162.0
 margin_right = 635.0
 margin_bottom = 242.0
 text = "Options"
 
 [node name="Creditos" type="Button" parent="MarginContainer/StartButtons"]
+margin_top = 162.0
+margin_right = 635.0
+margin_bottom = 242.0
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/StartButtons"]
 margin_top = 246.0
 margin_right = 635.0
 margin_bottom = 326.0
-text = "Creditos"
-
-[node name="QuitButton" type="Button" parent="MarginContainer/StartButtons"]
-margin_top = 330.0
-margin_right = 635.0
-margin_bottom = 410.0
 text = "Quit"
 
 [node name="LevelSelect" type="VBoxContainer" parent="MarginContainer"]
@@ -79,17 +80,18 @@ size_flags_vertical = 5
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/LevelSelect"]
-margin_top = 330.0
+margin_top = 292.0
 margin_right = 1820.0
-margin_bottom = 481.0
+margin_bottom = 520.0
 text = "Level Selection
+
 "
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/LevelSelect"]
-margin_top = 485.0
+margin_top = 524.0
 margin_right = 1820.0
-margin_bottom = 565.0
+margin_bottom = 604.0
 alignment = 1
 
 [node name="Level 1" type="Button" parent="MarginContainer/LevelSelect/HBoxContainer"]
@@ -116,31 +118,37 @@ margin_right = 1462.0
 margin_bottom = 80.0
 text = "Level 4"
 
-[node name="BackButton" type="Button" parent="MarginContainer/LevelSelect"]
-margin_top = 569.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/LevelSelect"]
+margin_top = 608.0
 margin_right = 1820.0
-margin_bottom = 649.0
+margin_bottom = 688.0
+alignment = 1
+
+[node name="BackButton" type="Button" parent="MarginContainer/LevelSelect/HBoxContainer2"]
+margin_left = 824.0
+margin_right = 1500.0
+margin_bottom = 80.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
 text = "Back"
 
 [node name="Level1" type="Sprite" parent="MarginContainer/LevelSelect"]
-position = Vector2( 483.625, 389.875 )
+position = Vector2( 483.625, 441.875 )
 scale = Vector2( 0.25, 0.252835 )
 texture = ExtResource( 6 )
 
 [node name="Level4" type="Sprite" parent="MarginContainer/LevelSelect"]
-position = Vector2( 1306.63, 389.875 )
+position = Vector2( 1306.63, 441.875 )
 scale = Vector2( 0.258891, 0.263298 )
 texture = ExtResource( 3 )
 
 [node name="Level3" type="Sprite" parent="MarginContainer/LevelSelect"]
-position = Vector2( 1040.63, 389.875 )
+position = Vector2( 1040.63, 441.875 )
 scale = Vector2( 0.272415, 0.254979 )
 texture = ExtResource( 4 )
 
 [node name="Level2" type="Sprite" parent="MarginContainer/LevelSelect"]
-position = Vector2( 768.625, 389.875 )
+position = Vector2( 768.625, 441.875 )
 scale = Vector2( 0.25, 0.277968 )
 texture = ExtResource( 5 )
 
@@ -156,4 +164,4 @@ volume_db = -23.0
 [connection signal="pressed" from="MarginContainer/LevelSelect/HBoxContainer/Level 2" to="." method="_on_Level_2_pressed"]
 [connection signal="pressed" from="MarginContainer/LevelSelect/HBoxContainer/Level 3" to="." method="_on_Level_3_pressed"]
 [connection signal="pressed" from="MarginContainer/LevelSelect/HBoxContainer/Level 4" to="." method="_on_Level_4_pressed"]
-[connection signal="pressed" from="MarginContainer/LevelSelect/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelect/HBoxContainer2/BackButton" to="." method="_on_BackButton_pressed"]
